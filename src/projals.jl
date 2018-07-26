@@ -12,8 +12,9 @@
 #  negative entries back to zeros.
 #
 
-import Base.LinAlg: copytri!
-import Base.LAPACK: potrs!, potrf!, potri!
+using LinearAlgebra
+#import Base.LinAlg: copytri!
+#import Base.LAPACK: potrs!, potrf!, potri!
 
 mutable struct ProjectedALS{T}
     maxiter::Int

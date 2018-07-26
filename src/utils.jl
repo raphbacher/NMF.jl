@@ -1,7 +1,9 @@
 # Numerical utilities to support implementation
-
-import Base.BLAS: nrm2
-import Base.LAPACK: potrf!, potri!, potrs!
+using LinearAlgebra
+#import Base.BLAS: nrm2
+#import Base.LAPACK: potrf!, potri!, potrs!
+import LinearAlgebra.LAPACK: potrf!, potri!, potrs!
+import LinearAlgebra: copytri!,mul!
 
 function printf_mat(x::AbstractMatrix)
     @inbounds for i = 1:size(x,1)
@@ -32,7 +34,7 @@ function adddiag!(A::Matrix, a::Number)
     return A
 end
 
-normalize1!(a) = scale!(a, 1 / sum(a))
+normalize1!(a) = rmul!(a, 1 / sum(a))
 
 function normalize1_cols!(a)
     for j = 1:size(a,2)
@@ -89,6 +91,6 @@ function pdrsolve!(A, B, x, uplo::Char='U')
     copytri!(B, uplo)
 
     # x <- A * B (the inversed one)
-    A_mul_B!(x, A, B)
+    #A_mul_B!(x, A, B)
+    mul!(x,A,B)
 end
-

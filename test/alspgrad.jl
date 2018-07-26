@@ -12,6 +12,7 @@ k = 3
 for T in (Float64, Float32)
     Wg = max.(rand(T, p, k) .- T(0.3), zero(T))
     Hg = max.(rand(T, k, n) .- T(0.3), zero(T))
+    local X, W, H
     X = Wg * Hg
 
     # test update of H

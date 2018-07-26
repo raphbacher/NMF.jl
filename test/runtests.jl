@@ -1,6 +1,8 @@
 using NMF
 using Compat
 using Compat.Test
+using Random
+import Random: srand
 
 tests = ["utils",
          "initialization",

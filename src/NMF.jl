@@ -1,6 +1,10 @@
 module NMF
     using Compat
     using StatsBase
+    using Printf
+    using LinearAlgebra
+    using Statistics
+    using Random
 
     import Compat: view
     import Base: sum!
