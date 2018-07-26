@@ -57,8 +57,8 @@ function nmf_skeleton!(updater::NMFUpdater{T},
     t = 0
     while !converged && t < maxiter
         t += 1
-        copy!(preW, W)
-        copy!(preH, H)
+        copyto!(preW, W)
+        copyto!(preH, H)
 
         # update H
         update_wh!(updater, state, X, W, H)

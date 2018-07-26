@@ -29,7 +29,7 @@ function _nndsvd!(X, W, Ht, inith::Bool, variant::Int)
     T = eltype(W)
 
     # compute SVD
-    (U, s, V) = svd(X, thin=true)
+    (U, s, V) = svd(X, full=false)
 
     # main loop
     v0 = variant == 0 ? zero(T) :
