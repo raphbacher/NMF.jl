@@ -13,7 +13,7 @@ for T in (Float64, Float32)
     Wg = max.(rand(T, p, k) .- T(0.3), zero(T))
     Hg = max.(rand(T, k, n) .- T(0.3), zero(T))
     global X = Wg * Hg
-
+    print(X[1,1])
     # test update of H
 
     global H = rand(T, k, n)
