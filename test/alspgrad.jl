@@ -13,7 +13,6 @@ for T in (Float64, Float32)
     Wg = max.(rand(T, p, k) .- T(0.3), zero(T))
     Hg = max.(rand(T, k, n) .- T(0.3), zero(T))
     global X = Wg * Hg
-    print(X[1,1])
     # test update of H
 
     global H = rand(T, k, n)
@@ -24,6 +23,7 @@ for T in (Float64, Float32)
     # test update of W
 
     global W = rand(T, p, k)
+    println(X[2,2],W[2,2],Hg[2,2])
     NMF.alspgrad_updatew!(X, W, Hg; maxiter=200)
     @test all(W .>= 0.0)
     @test W ≈ Wg atol=eps(T)^(1/4)
