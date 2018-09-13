@@ -282,7 +282,7 @@ function _alspgrad_updatew!(X,                      # size (p, n)
     α = one(T) / one(eltype(G))
     while !converged && t < maxiter
         t += 1
-
+	print(α)
         # compute gradient
         mul!(G, W, HHt)
         for i = 1:length(G)
