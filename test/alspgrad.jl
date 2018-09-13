@@ -23,6 +23,7 @@ for T in (Float64, Float32)
     # test update of W
 
     global W = rand(T, p, k)
+
     println(X[2,2],W[2,2],Hg[2,2])
     NMF.alspgrad_updatew!(X, W, Hg; maxiter=200)
     @test all(W .>= 0.0)
